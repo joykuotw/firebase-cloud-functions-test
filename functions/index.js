@@ -6,7 +6,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 // Take the text parameter passed to this HTTP endpoint and insert it into the
-// Realtime Database under the path /pings/:pushId/ping
+// Realtime Database under the path /pingpong/:pushId/ping
 exports.ping = functions.https.onRequest((req, res) => {
   // Grab the text parameter.
   const ping = req.query.text;
@@ -17,13 +17,13 @@ exports.ping = functions.https.onRequest((req, res) => {
   });
 });
 
-// Listens for new pings added to /pings/:pushId/ping and return the value of ping to /pongs/pong
+// Listens for new pings added to /pingpong/:pushId/ping and return the value of ping to /pingping/:pushId/pong
 exports.pong = functions.database.ref('/pingpong/{pushId}/ping')
     .onWrite(event => {
       // Grab the current value of what was written to the Realtime Database.
       const ping = event.data.val();
       // You must return a Promise when performing asynchronous tasks inside a Functions such as
       // writing to the Firebase Realtime Database.
-      // Setting an "uppercase" sibling in the Realtime Database returns a Promise.
+      // Setting an identical sibling in the Realtime Database returns a Promise.
       return event.data.ref.parent.child('pong').set(ping);
     });
