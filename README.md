@@ -47,3 +47,7 @@ You can also test it by sending request using cURL in terminal:
 ```
 curl -X GET --header 'Accept: text/html' https://us-central1-gcp-training-144309.cloudfunctions.net/ping?text=Hello
 ```
+
+#### Reference
+- [firebase-functions-ping-pong](https://github.com/sebastianovide/pocs/tree/master/firebase-functions-ping-pong)
+- [Get Started: Write and Deploy Your First Functions](https://firebase.google.com/docs/functions/get-started)
