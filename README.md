@@ -42,6 +42,8 @@ https://us-central1-gcp-training-144309.cloudfunctions.net/ping?text=Hello
 
 This will send a Hello text request to Firebase and push to database under the defined path `/pingpong/<unique-push-id>/ping`. After the ping function is executed, it will redirect the browser to Firebase console's database location where the stored string is, and you will see an identical sibling under the defined path `/pingpong/<unique-push-id>/pong`.
 
+![Firebase realtime database](/assets/firebase-realtime-database.png)
+
 You can also test it by sending request using cURL in terminal:
 
 ```
